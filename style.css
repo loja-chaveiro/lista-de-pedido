@@ -58,7 +58,7 @@ h1{text-align: center;}
 
 header nav,nav a{
     display: flex;
-    align-items: center;
+    align-items: auto;
     gap: 20px;
     color: #1f2937;
     text-decoration: none;
@@ -133,6 +133,7 @@ main>a{
     border: solid 2px black;
     box-shadow: 10px 10px 1px black;
     font-size: 100% 100%;
+    text-decoration: none;
 
     color: black;
     font-size: 150%;
@@ -159,8 +160,11 @@ main > a:hover {
         flex-direction: column;
     }
     nav{
-        width: 90%;
+        width: 100%;
         justify-content: space-between;
-        text-align: center;
+        word-break: break-all;
+        flex-direction: column;
+        text-align: left;
+        margin: auto;
     }
 }
