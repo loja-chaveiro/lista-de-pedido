@@ -40,18 +40,15 @@ body::-webkit-scrollbar {
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 20px;
     background-color: #ffffff;
     border-bottom: 1px solid #e5e7eb;
     box-shadow: 0 3px 12px #00000008;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
 }
 
 header h1{
     font-size: 170%;
+    width: 20vw;
 }
 
 h1{text-align: center;}
@@ -64,6 +61,11 @@ header nav,nav a{
     text-decoration: none;
     font-weight: bold;
 
+}
+
+nav{
+    position: absolute;
+    right: 10px;
 }
 
 nav>a{
@@ -95,15 +97,13 @@ img{
     width: 40px;
     height: auto;
 }
-
-header span {
-    display: inline-block;
-    padding: 8px 12px;
-    border-radius: 10px;
-
-    color: #15803d;
-    background-color: #dcfce7;
-    font-weight: bold;
+.status_loja{
+    box-shadow: 5px 5px 1px black;
+    border: solid 4px rgb(18, 99, 18);
+    color: lime;
+    background-color: green;
+    padding: 5px;
+    width: 17vw;
 }
 
 main{

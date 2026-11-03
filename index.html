@@ -9,11 +9,11 @@
 </head>
 <body>
     <header>
-        <h1>Opçoes de pedidos</h1>
+        <h1>Opçoes de pedidos</h1><h1 class="status_loja">Aberto</h1>
         <nav>
             <a class="avalie" href="https://g.page/r/CaPzlC-TrSQlECE/review" target="_blank">
                 <img src="midia/star.png">Avalie</a>
-            <a class="contato" href="https://wa.me/5512996534264?text=Ol%C3%A1!%20Eu%20quero%20um%20chaveiro%20personalizado!" target="_blank">
+            <a class="contato" href="https://wa.me/5512988520109?text=Ol%C3%A1!%20Eu%20quero%20um%20chaveiro%20personalizado!" target="_blank">
                 <img src="midia/whatsapp.png">Entre em contato</a>
         </nav>
     </header>
@@ -28,5 +28,15 @@
         <a href="https://forms.gle/HDrp7i3qapwbhsX57" target="_blank">Foto real</a>
         <a href="https://forms.gle/GXPiwV3sGqfviDf49" target="_blank">envie uma foto do seu chaveiro!</a>
     </main>
+    <script>
+        const tempo = new Date;
+        const status_lojas = document.querySelector(".status_loja");
+        if(tempo.getHours() < 9 || tempo.getHours() > 18 ){
+            status_lojas.style.color = "red";
+            status_lojas.style.background = "rgb(107, 13, 13)";
+            status_lojas.style.border = "solid red";
+            status_lojas.innerHTML = "Fechado"
+        }
+    </script>
 </body>
 </html>
