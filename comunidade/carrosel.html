@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comunidade</title>
+  <style>
+    h2, a{
+        text-decoration: none;
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    color: white;
+    width: 100px;
+    height: 50px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #000;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    /* Post ocupando a tela inteira */
+    .instagram-carousel {
+      position: relative;
+      width: 100vw;
+      height: 100dvh; /* 100vh dinâmico para celular e PC */
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slide {
+      position: relative;
+      min-width: 100%;
+      height: 100%;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Foto inteira sem cortar */
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Texto com os nomes no canto da imagem */
+    .legenda-canto {
+      position: absolute;
+      bottom: 24px;
+      left: 20px;
+      max-width: min(85%, 420px);
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.65);
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.45;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+    }
+
+    .legenda-canto strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    /* Botões de navegação */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.18);
+      color: #fff;
+      border: none;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 18px;
+      z-index: 15;
+    }
+
+    .nav-btn:hover {
+      background-color: rgba(255, 255, 255, 0.32);
+    }
+
+    .prev { left: 16px; }
+    .next { right: 16px; }
+  </style>
+</head>
+<body>
+  <div class="instagram-carousel">
+    <div class="carousel-track" id="track">
+      <div class="slide">
+        <img src="https://i.pinimg.com/736x/05/68/fa/0568fa1976607628be92de5cfced3f4c.jpg" alt="Foto 1" />
+        <div class="legenda-canto">
+          <strong>Pedro Manoel</strong>
+          Luffy
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="https://i.pinimg.com/736x/da/34/6e/da346e3644eba4ff9d8f166af6405e84.jpg" alt="Foto 2" />
+        <div class="legenda-canto">
+          <strong>Naara</strong>
+          Fantasma
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://i.pinimg.com/736x/92/fc/50/92fc50d4096d2ee93fe1f29813073041.jpg" alt="Foto 1" />
+        <div class="legenda-canto">
+          <strong>Maria Alice</strong>
+          Gojo
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="https://i.pinimg.com/736x/d8/4a/bd/d84abded492e19903cf708c1f46fbb9e.jpg" alt="Foto 2" />
+        <div class="legenda-canto">
+          <strong>Lucas streitenberger</strong>
+          Galo&#8226;Galinnha&#8226;Peixe
+        </div>
+      </div>
+      <div class="slide">
+        <img src="https://i.pinimg.com/736x/48/29/ef/4829efd91fe1956b7f9ad57513cccd1c.jpg" alt="Foto 2" />
+        <div class="legenda-canto">
+          <strong>Sophie:</strong>
+          Corinthians
+        </div>
+      </div>
+    </div>
+
+    <button class="nav-btn prev" onclick="mudarSlide(-1)">&#10094;</button>
+    <button class="nav-btn next" onclick="mudarSlide(1)">&#10095;</button>
+  </div>
+
+  <script>
+    function mudarSlide(direcao) {
+    const track = document.getElementById('track');
+    const slides = track.getElementsByClassName('slide');
+    const totalSlides = slides.length;
+    const larguraTela = window.innerWidth;
+
+    // Descobre em qual slide o usuário está atualmente baseado na rolagem
+    let indiceAtual = Math.round(track.scrollLeft / larguraTela);
+
+    // Avança ou recua o índice
+    indiceAtual += direcao;
+
+    // Lógica de Loop Infinito:
+    if (indiceAtual >= totalSlides) {
+        indiceAtual = 0; // Se passou do último, volta para o primeiro
+    } else if (indiceAtual < 0) {
+        indiceAtual = totalSlides - 1; // Se passou do primeiro para trás, vai para o último
+    }
+
+    // Rola suavemente para o slide calculado
+    track.scrollTo({
+        left: indiceAtual * larguraTela,
+        behavior: 'smooth'
+    });
+    }
+  </script>
+    <h2><a href="../index.html">Voltar</a></h2>
+</body>
+</html>
