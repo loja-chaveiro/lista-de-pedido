@@ -20,6 +20,7 @@
         </nav>
     </header>
         <h1>Temas</h1>
+        <img src="midia/anuncio-01.png" class="anuncios">
     <main>
         <a href="animais/index.html">Animais</a>
         <a href="anime/index.html">Personagens de anime</a>
@@ -27,6 +28,7 @@
         <a href="pokemon/index.html">Pokemon</a>
         <a href="namorado/index.html">Amor / casal</a>
         <a href="comida/index.html">Comidas</a>
+        <a href="time/index.html">Times</a>
         <a href="https://forms.gle/HDrp7i3qapwbhsX57" target="_blank">Foto real</a>
         <a href="https://imgdrive-n27dfvnp.manus.space">envie uma foto do seu chaveiro!</a>
         <a href="comunidade/index.html">Venha conhecer a comunidade dos chaveiros!</a>
@@ -40,6 +42,20 @@
             status_lojas.style.border = "solid red";
             status_lojas.innerHTML = "Fechado"
         }
+        let num = localStorage.getItem("num") || 0;
+        if(num == 4){
+            num = 0
+        }
+        const anuncio = document.querySelector(".anuncios");
+        if(num == 0){
+            anuncio.src = "midia/anuncio-01.png"
+        }else if(num == 2){
+            anuncio.src = "midia/anuncio-02.png"
+        }else{
+            anuncio.src = "midia/anuncio-03.png"
+        }
+        num++
+        localStorage.setItem("num", num)
     </script>
 </body>
 </html>
