@@ -69,22 +69,16 @@ main > a > section {
     flex: 1 1 250px;
     min-width: 150px;
     max-width: 100%;
-    width: clamp(130px, 20vw, 400px);
-    height: clamp(270px, 25vh, 450px);
+    width: clamp(350px, 25vw, 450px);
+    height: clamp(350px, 25vh, 450px);
 
     border: solid 2px black;
     box-shadow: 10px 10px 1px black;
 
-    transform: scale(1);
-    transition: transform 0.3s ease-in-out,
-                box-shadow 0.3s ease-in-out,
-                border 0.3s ease-in-out;
 }
 
-main > a > section:hover {
-    transform: scale(1.02);
-    box-shadow: 10px 10px 50px yellow;
-    border: solid 1px yellow;
+section:hover{
+    scale: 1.005;
 }
 
 section > p {
@@ -100,10 +94,6 @@ section > p {
     transition: color 0.5s ease-in-out;
 }
 
-section:hover p {
-    color: red;
-}
-
 body > a > p {
     margin-left: 50px;
     height: 70px;
@@ -116,15 +106,20 @@ body > a {
     text-align: center;
 }
 
-div > p:hover {
-    font-weight: bolder;
-    transition: font-weight 0.5s;
-}
-
 div {
     cursor: pointer;
     text-align: center;
     border: solid 1px black;
     width: 90vw;
     margin: 10px auto;
+}
+
+@media (max-width: 500px){
+    main{
+        width: 100%;
+    }
+
+    a{
+        width: 70%;
+    }
 }

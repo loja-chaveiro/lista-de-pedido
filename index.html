@@ -28,13 +28,13 @@
             <img src="midia/anuncio-01.png" class="anuncios">
         </section>
         <section class="opcao">
-            <a href="animais/index.html">Animais</a>
-            <a href="anime/index.html">Personagens de anime</a>
-            <a href="desenho/index.html">Personagens de desenho / jogos</a>
-            <a href="pokemon/index.html">Pokemon</a>
-            <a href="namorado/index.html">Amor / casal</a>
-            <a href="comida/index.html">Comidas</a>
-            <a href="time/index.html">Times</a>
+            <a href="itens/index.html" onclick="botao('animais')">Animais</a>
+            <a href="itens/index.html" onclick="botao('anime')">Personagens de anime</a>
+            <a href="itens/index.html" onclick="botao('desenho')">Personagens de desenho / jogos</a>
+            <a href="itens/index.html" onclick="botao('pokemon')">Pokemon</a>
+            <a href="itens/index.html" onclick="botao('amor')">Amor / casal</a>
+            <a href="itens/index.html" onclick="botao('comida')">Comidas</a>
+            <a href="itens/index.html" onclick="botao('time')">Times</a>
             <a href="https://forms.gle/HDrp7i3qapwbhsX57" target="_blank">Foto real</a>
             <a href="https://imgdrive-n27dfvnp.manus.space">participe da comunidade!</a>
             <a href="comunidade/index.html">Venha conhecer a comunidade dos chaveiros!</a>
@@ -48,7 +48,7 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14737.225792485568!2d-44.9533479!3d-22.567639049999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9df72f9aeec4eb%3A0x2524ad932f94f3a3!2sLuiz%20Chaveiro!5e0!3m2!1spt-BR!2sbr!4v1795367756598!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </footer>
     <h2>Contador</h2>
-    <div align=center><img src='https://contador.s12.com.br/img-0CDb0b1Z71CBZWw8-17.gif' border='0' alt='contador grátis'><script type='text/javascript' src='https://contador.s12.com.br/ad.js?id=0CDb0b1Z71CBZWw8'></script> Passaram por este site</div>
+    <div align=center><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-z2y1Z8Za2Yd1CD0Z-15.gif' border='0' alt='contador gratuito'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=z2y1Z8Za2Yd1CD0Z'></script></div>
     <script>
         const tempo = new Date;
         const status_lojas = document.querySelector(".status_loja");
@@ -56,22 +56,25 @@
             status_lojas.style.color = "red";
             status_lojas.style.background = "rgb(107, 13, 13)";
             status_lojas.style.border = "solid red";
-            status_lojas.innerHTML = "Fechado"
+            status_lojas.innerHTML = "Fechado";
         }
         let num = localStorage.getItem("num") || 0;
         if(num == 4){
-            num = 0
+            num = 0;
         }
         const anuncio = document.querySelector(".anuncios");
         if(num == 0){
-            anuncio.src = "midia/anuncio-01.png"
+            anuncio.src = "midia/anuncio-01.png";
         }else if(num == 2){
-            anuncio.src = "midia/anuncio-02.png"
+            anuncio.src = "midia/anuncio-02.png";
         }else{
-            anuncio.src = "midia/anuncio-03.png"
+            anuncio.src = "midia/anuncio-03.png";
+        };
+        num++;
+        localStorage.setItem("num", num);
+        function botao(x){
+            localStorage.setItem("tema",x);
         }
-        num++
-        localStorage.setItem("num", num)
     </script>
 </body>
 </html>
