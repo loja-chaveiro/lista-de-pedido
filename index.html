@@ -50,14 +50,6 @@
     <h2>Contador</h2>
     <div align=center><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-z2y1Z8Za2Yd1CD0Z-15.gif' border='0' alt='contador gratuito'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=z2y1Z8Za2Yd1CD0Z'></script></div>
     <script>
-        const tempo = new Date;
-        const status_lojas = document.querySelector(".status_loja");
-        if(tempo.getHours() < 9 || tempo.getHours() > 20 ){
-            status_lojas.style.color = "red";
-            status_lojas.style.background = "rgb(107, 13, 13)";
-            status_lojas.style.border = "solid red";
-            status_lojas.innerHTML = "Fechado";
-        }
         let num = localStorage.getItem("num") || 0;
         if(num == 4){
             num = 0;
